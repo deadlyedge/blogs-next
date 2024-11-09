@@ -23,8 +23,8 @@ const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
       <h1 className='text-3xl font-bold'>{post?.title}</h1>
       <p>Written by: {post?.author?.name}</p>
       <div className='mt-4'>{post?.content}</div>
-      <Comments postId={post?.id!} />
-      <FormComment postId={post?.id!} />
+      <Comments postId={post?.id || ""} />
+      <FormComment postId={post?.id || ""} />
     </div>
   )
 }
