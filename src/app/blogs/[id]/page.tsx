@@ -3,9 +3,9 @@ import FormComment from "@/components/formComment"
 import { prisma } from "@/lib/prismadb"
 
 type BlogDetailPageProps = {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
