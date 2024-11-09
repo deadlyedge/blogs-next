@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prismadb"
 
 type BlogDetailPageProps = {
   params: {
-    id: string
+    id: Promise<string>
   }
 }
 
@@ -12,7 +12,7 @@ const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
   const { id } = await params
   const post = await prisma.post.findUnique({
     where: {
-      id,
+      id: await id,
     },
     include: {
       author: true,
